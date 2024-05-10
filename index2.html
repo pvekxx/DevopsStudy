@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    const callbackPromise = (num, time) => {
+        return new Promise((res, rej) => {
+            try {
+                setTimeout(() => {
+                    res(num);
+                    console.log(num);
+                }, time);
+            }
+            catch (e) {
+                rej(e);
+            }
+        })
+    }
+
+    async function asyncFn() {
+        try {
+            const a = await callbackPromise("1", 1000);
+            const b = await callbackPromise("2", 1000);
+            const c = await callbackPromise("3", 1000);
+            const d = await callbackPromise("4", 1000);
+            const e = await callbackPromise("5", 1000);
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+    asyncFn();
+
+</script>
+
+</html>
